@@ -1,0 +1,10 @@
+2024-01-15 10:32:33.1666 INFO Here is info message from the controller.
+2024-01-15 10:32:33.2460 DEBUG Here is debug message from the controller.
+2024-01-15 10:32:33.2460 WARN Here is warn message from the controller.
+2024-01-15 10:32:33.2460 ERROR Here is error message from the controller.
+2024-01-15 10:35:26.5727 INFO Here is info message from the controller.
+2024-01-15 10:35:27.2666 DEBUG Here is debug message from the controller.
+2024-01-15 10:35:27.8947 WARN Here is warn message from the controller.
+2024-01-15 10:35:28.4771 ERROR Here is error message from the controller.
+2024-01-15 11:15:20.9815 INFO Returned all owners from database.
+2024-01-15 11:15:38.8481 INFO Returned all owners from database.

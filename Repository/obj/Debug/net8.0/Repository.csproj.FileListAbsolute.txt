@@ -1,0 +1,17 @@
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Repository.deps.json
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Repository.dll
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Repository.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Contracts.dll
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Entities.dll
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Contracts.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Repository\bin\Debug\net8.0\Entities.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.AssemblyReference.cache
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.AssemblyInfoInputs.cache
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.AssemblyInfo.cs
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.CoreCompileInputs.cache
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.CopyComplete
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.dll
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\refint\Repository.dll
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\Repository.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Repository\obj\Debug\net8.0\ref\Repository.dll

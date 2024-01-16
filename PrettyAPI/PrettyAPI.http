@@ -1,0 +1,6 @@
+@PrettyAPI_HostAddress = http://localhost:5036
+
+GET {{PrettyAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

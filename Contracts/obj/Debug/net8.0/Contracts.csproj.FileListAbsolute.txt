@@ -1,0 +1,15 @@
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\bin\Debug\net8.0\Contracts.deps.json
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\bin\Debug\net8.0\Contracts.dll
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\bin\Debug\net8.0\Contracts.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\bin\Debug\net8.0\Entities.dll
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\bin\Debug\net8.0\Entities.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.csproj.AssemblyReference.cache
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.AssemblyInfoInputs.cache
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.AssemblyInfo.cs
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.csproj.CoreCompileInputs.cache
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.csproj.CopyComplete
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.dll
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\refint\Contracts.dll
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.pdb
+D:\ZS-Soft-Tech\PrettyAPI\Contracts\obj\Debug\net8.0\ref\Contracts.dll

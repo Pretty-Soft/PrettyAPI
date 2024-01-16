@@ -1,0 +1,17 @@
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\LoggerService.deps.json
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\LoggerService.dll
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\LoggerService.pdb
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\Contracts.dll
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\Entities.dll
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\Contracts.pdb
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\bin\Debug\net8.0\Entities.pdb
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.csproj.AssemblyReference.cache
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.GeneratedMSBuildEditorConfig.editorconfig
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfoInputs.cache
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfo.cs
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.csproj.CoreCompileInputs.cache
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.csproj.CopyComplete
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.dll
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\refint\LoggerService.dll
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.pdb
+D:\ZS-Soft-Tech\PrettyAPI\LoggerService\obj\Debug\net8.0\ref\LoggerService.dll
