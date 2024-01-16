@@ -175,7 +175,7 @@ namespace PrettyAPI.Controllers
                 _repository.Owner.UpdateOwner(ownerEntity);
                 await _repository.SaveAsync();
 
-                returnData.data = null;
+                returnData.data = default!;
                 returnData.statusCode = StatusCodes.Status201Created;
                 returnData.status = "success";
                 returnData.message = "";

@@ -19,6 +19,7 @@ builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 //builder.Services.ConfigureMySqlContext(builder.Configuration);
 builder.Services.ConfigureRepositoryWrapper();
+builder.Services.ConfigureTokenRepositoryWrapper();
 builder.Services.AddAutoMapper(typeof(Program));
 
 //jwt

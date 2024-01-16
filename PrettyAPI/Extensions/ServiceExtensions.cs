@@ -51,5 +51,10 @@ namespace PrettyAPI.Extensions
         {
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
+        public static void ConfigureTokenRepositoryWrapper(this IServiceCollection services)
+        {
+            services.AddTransient<ITokenService, TokenService>();
+        }
+
     }
 }

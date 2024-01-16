@@ -14,6 +14,6 @@ namespace Entities.Helper
     }
     public class ApiResponseSuccess<T> : ApiResponse
     {
-        public T data { get; set; }
+        public T data { get; set; } = default!;
     }
 }

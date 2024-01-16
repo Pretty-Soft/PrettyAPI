@@ -18,7 +18,7 @@ namespace Repository
         {
             RepositoryContext=repositoryContext;
         }
-        public IQueryable<T> FindAll(Pagination pagination) =>  RepositoryContext.Set<T>().Skip(pagination.Skip).Take(pagination.Limit).AsQueryable();
+        public IQueryable<T> FindAll(Pagination pagination) => RepositoryContext.Set<T>().Skip(pagination.Skip).Take(pagination.Limit).AsQueryable();
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression) =>
             RepositoryContext.Set<T>().Where(expression).AsNoTracking();
         public void Create(T entity) => RepositoryContext.Set<T>().Add(entity);
