@@ -10,7 +10,7 @@ API solution
 * PrettyAPI is cross-platform, and you can run it on Windows, Linux, or Mac.
 * PrettyAPI supports Docker out of the box, so you can easily run PrettyAPI on a any machine.
 * PrettyAPI supports PostgreSQL, MySQL and other databases.
-* PrettyAPI fully supports web farms. You can read more about it [here](https://www.linkedin.com/company/prettysoft).  
+
 * All methods in PrettyAPI are async.
 * PrettyAPI supports multi-factor authentication out of the box.
 
@@ -19,7 +19,7 @@ PrettyAPI architecture follows well-known software patterns and the best securit
 
 Using the latest Microsoft technologies, PrettyAPI provides high performance, stability, and security. PrettyAPI is also fully compatible with Azure and web farms.
 
-Our clear and detailed [documentation](https://www.linkedin.com/company/101071547) and [online course](https://www.linkedin.com/company/101071547) for developers will be available soon to start with PrettyAPI easily.
+
 
 
 ### The advantages of working with PrettyAPI ###
@@ -36,9 +36,16 @@ Front End | Admin area
 Comming soon.....
 
 ### PrettyAPI resources ###
+Add username and password to seed and Run Update-Database  migration command
+Sample API that is generated for you concern
 
-Comming soon.....
+[Token](https://localhost:44310/api/auth/login) 
+[Delete API](https://localhost:44310/api/owner/delete-owner/{id})
+[Update API](https://localhost:44310/api/owner/update-owner/{id})
+[Get API](https://localhost:44310/api/owner/owner-with-account/{id}})
+[Post API](https://localhost:44310/api/owner/create-owner)
+[Get API](https://localhost:44310/api/owner/owner-with-account/{id})
+[Get API](https://localhost:44310/api/owner/get-by-id/{id})
 
 ### Contribute ###
 
-As a free and open-source project, we are very grateful to everyone who helps us to develop PrettyAPI. Please find more details about the options and bonuses for contributors at [contribute page](https://www.linkedin.com/company/prettysoft).

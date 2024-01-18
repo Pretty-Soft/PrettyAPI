@@ -942,6 +942,7 @@
         "dependencies": {
           "Contracts": "1.0.0",
           "Entities": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "System.IdentityModel.Tokens.Jwt": "7.2.0"
         },
         "runtime": {

@@ -8,20 +8,27 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Repository
 {
     public class TokenService: ITokenService
     {
+        private IConfiguration config;
+        public TokenService(IConfiguration config)
+        {
+            this.config = config;
+        }
         public string GenerateAccessToken(IEnumerable<Claim> claims)
         {
-            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("JWTsjjfjhicodehjhdu44rfddTonjhgyufrsenHIGHsecuredPasswordVVVp1OH7Xzyr"));
+            
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"].ToString()));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
             var tokeOptions = new JwtSecurityToken(
-                issuer: "https://localhost:5001",
-                audience: "https://localhost:5001",
+                issuer: config["JWT:ValidIssuer"].ToString(),
+                audience: config["JWT:ValidAudience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(5),
+                expires: DateTime.Now.AddMinutes(35),
                 signingCredentials: signinCredentials
             );
             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
@@ -38,13 +45,14 @@ namespace Repository
         }
         public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
         {
+            var jwtSecret = config["JWT:Secret"];
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
-                ValidateIssuer = false,
+                ValidateIssuer = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("JWTsjjfjhicodehjhdu44rfddTonjhgyufrsenHIGHsecuredPasswordVVVp1OH7Xzyr")),
-                ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"].ToString())),
+                ValidateLifetime = true //here we are saying that we  care about the token's expiration date
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;

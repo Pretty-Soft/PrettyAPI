@@ -2,6 +2,7 @@ using Contracts;
 using Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using NLog;
 using PrettyAPI.CustomMiddleware;
@@ -20,26 +21,29 @@ builder.Services.ConfigureSqlContext(builder.Configuration);
 //builder.Services.ConfigureMySqlContext(builder.Configuration);
 builder.Services.ConfigureRepositoryWrapper();
 builder.Services.ConfigureTokenRepositoryWrapper();
+builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
 
 //jwt
-builder.Services.AddAuthentication(opt => {
-    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = "https://localhost:44310",
-            ValidAudience = "https://localhost:44310",
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("JWTsjjfjhicodehjhdu44rfddTonjhgyufrsenHIGHsecuredPasswordVVVp1OH7Xzyr"))
-        };
-    });
+//builder.Services.AddAuthentication(opt => {
+//    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+//    .AddJwtBearer(options =>
+//    {
+//        options.TokenValidationParameters = new TokenValidationParameters
+//        {
+//            ValidateIssuer = true,
+//            ValidateAudience = true,
+//            ValidateLifetime = true,
+//            ValidateIssuerSigningKey = true,
+//            ValidIssuer = "https://localhost:44310",
+//            ValidAudience = "https://localhost:44310",
+//            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("JWTsjjfjhicodehjhdu44rfddTonjhgyufrsenHIGHsecuredPasswordVVVp1OH7Xzyr"))
+//        };
+//        options.IncludeErrorDetails = true;
+//    });
+
 
 builder.Services.AddControllers();
 
