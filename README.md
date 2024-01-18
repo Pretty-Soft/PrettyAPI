@@ -40,6 +40,7 @@ Add username and password to seed and Run Update-Database  migration command
 Sample API that is generated for you concern
 
 [Token](https://localhost:44310/api/auth/login) 
+[Refresh Token](https://localhost:44310/api/token/refresh) 
 [Delete API](https://localhost:44310/api/owner/delete-owner/{id})
 [Update API](https://localhost:44310/api/owner/update-owner/{id})
 [Get API](https://localhost:44310/api/owner/owner-with-account/{id}})

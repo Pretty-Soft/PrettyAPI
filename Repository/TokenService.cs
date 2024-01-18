@@ -25,7 +25,7 @@ namespace Repository
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"].ToString()));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
             var tokeOptions = new JwtSecurityToken(
-                issuer: config["JWT:ValidIssuer"].ToString(),
+                issuer: config["JWT:ValidIssuer"],
                 audience: config["JWT:ValidAudience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(35),
@@ -50,6 +50,8 @@ namespace Repository
             {
                 ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
                 ValidateIssuer = true,
+                ValidIssuer= config["JWT:ValidIssuer"],
+                ValidAudience = config["JWT:ValidAudience"],
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"].ToString())),
                 ValidateLifetime = true //here we are saying that we  care about the token's expiration date

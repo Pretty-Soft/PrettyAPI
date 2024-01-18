@@ -21,7 +21,7 @@ namespace PrettyAPI.Controllers
         }
         [HttpPost]
         [Route("refresh")]
-        public IActionResult Refresh(TokenApiModel tokenApiModel)
+        public IActionResult Refresh([FromBody]TokenApiModel tokenApiModel)
         {
             if (tokenApiModel is null)
                 return BadRequest("Invalid client request");
