@@ -41,13 +41,13 @@ namespace PrettyAPI.Extensions
 
             services.AddDbContext<RepositoryDBContext>(options =>
             options.UseSqlServer(connectionString, b => b.MigrationsAssembly("PrettyAPI")));
-           // services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddDataProtection();
 
         }
         //public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
-        //{
-        //    var connectionString = config["MySqlConnection:DefaultConnection"];
-        //    services.AddDbContext<RepositoryContext>(o => o.UseMySql(connectionString,
+        //{//need to declare and correction
+        //    var connectionString = config["ConnectionStrings:DefaultConnection"];
+        //    services.AddDbContext<RepositoryDBContext>(o => o.UseMySql(connectionString,
         //        MySqlServerVersion.LatestSupportedServerVersion));
         //}
 
