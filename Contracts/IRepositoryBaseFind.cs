@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Contracts
 {
-    public interface IRepositoryBaseFind<T>
+    public interface IRepositoryBaseFind<T> where T : class
     {
         IQueryable<T> FindAll(Pagination pagination);
-        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
-        long GetCount();
-
+        IQueryable<T> FindByExpression(Expression<Func<T, bool>> expression);   
+        Task<T> GetByIdAsync(int id);
+        Task<long> GetCountAsync(); 
     }
     
 }

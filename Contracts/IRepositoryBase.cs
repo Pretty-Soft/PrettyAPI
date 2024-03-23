@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Contracts
 {
-    public interface IRepositoryBase<T>: IRepositoryBaseFind<T>
+    public interface IRepositoryBase<T> where T : class
     {
-        void Create(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        Task CreateAsync(T entity);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);   
     }
 }

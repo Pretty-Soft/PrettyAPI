@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class RepositoryWrapper:IRepositoryWrapper
+    public class RepositoryWrapper(RepositoryDBContext repositoryContext) : IRepositoryWrapper, IDisposable
     {
-        private RepositoryDBContext _repoContext;
+        private RepositoryDBContext _repoContext = repositoryContext;
         private IOwnerRepository _owner;
         private IAccountRepository _account;
 
@@ -18,24 +19,27 @@ namespace Repository
         {
             get
             {
-                if (_owner == null){_owner = new OwnerRepository(_repoContext);}
+                if(_owner == null){_owner = new OwnerRepository(_repoContext);}
                 return _owner;
             }
         }
 
         public IAccountRepository Account
         {
-            get{if( _account == null) { _account = new AccountRepository(_repoContext); }return _account;}
-          
+            get{
+                if( _account == null) { _account = new AccountRepository(_repoContext); }
+                return _account;
+            }
         }
 
-        public RepositoryWrapper(RepositoryDBContext repositoryContext)
-        {
-            _repoContext = repositoryContext;
-        }
         public async Task SaveAsync()
         {
             await _repoContext.SaveChangesAsync();
+        }
+
+        public void Dispose()
+        {
+            _repoContext.Dispose();
         }
     }
 }

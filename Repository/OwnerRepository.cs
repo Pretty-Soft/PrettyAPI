@@ -12,40 +12,31 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class OwnerRepository: RepositoryBase<Owner>,IOwnerRepository
+    public class OwnerRepository: RepositoryBase<Owner>, IOwnerRepository
     {
         public OwnerRepository(RepositoryDBContext repositoryContext):base(repositoryContext)
         {
-                
+              
         }
-
         public async Task<IEnumerable<Owner>> GetOwnersAsync(Pagination pagination)  
         {
             return await FindAll(pagination).ToListAsync();
         }
-        public async Task<Owner> GetOwnerByIdAsync(Guid ownerId)
+        public async Task<IList<Owner>> GetOwnerByIdAsync(Guid ownerId)
         {
             Expression<Func<Owner, bool>> expression = owner => owner.Id.Equals(ownerId);
-            return await FindByCondition(expression)
-                .FirstOrDefaultAsync();
+            return await FindByExpression(expression).ToListAsync();
         }
-        public async Task<Owner> GetOwnerWithDetailsAsync(Guid ownerId)
+        public async Task<IList<Owner>> GetOwnerWithAccountDetailsAsync(Guid ownerId)
         {
             Expression<Func<Owner, bool>> expression = owner => owner.Id.Equals(ownerId);
-            return await FindByCondition(expression).Include(ac => ac.Accounts)
-                .FirstOrDefaultAsync();
+            return await FindByExpression(expression).Include(ac => ac.Accounts).ToListAsync();
         }
-        public void CreateOwner(Owner owner)
-        {
-            Create(owner);
-        }
-        public void UpdateOwner(Owner owner)
-        {
-            Update(owner);
-        }
-        public void DeleteOwner(Owner owner)
-        {
-            Delete(owner);
-        }
+        public void CreateOwner(Owner owner)=> CreateAsync(owner);
+        
+        public void UpdateOwner(Owner owner)=> UpdateAsync(owner);
+        
+        public void DeleteOwner(Owner owner)=> DeleteAsync(owner);
+        
     }
 }
