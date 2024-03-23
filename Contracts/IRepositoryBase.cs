@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,6 +12,11 @@ namespace Contracts
     {
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);
-        Task DeleteAsync(T entity);   
+        Task DeleteAsync(T entity);
+        IQueryable<T> FindByExpression(Expression<Func<T, bool>> expression);
+        Task<IQueryable<T>> ExecuteSqlQuery(Func<IQueryable<T>, IQueryable<T>> query);
+        Task<T> GetByIdAsync(Guid id);
+        IQueryable<T> FindAll(Pagination pagination);
+        Task<long> GetCountAsync();
     }
 }

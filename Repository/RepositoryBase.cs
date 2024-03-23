@@ -33,5 +33,11 @@ namespace Repository
             RepositoryContext.Set<T>().Remove(entity);
             return Task.CompletedTask;
         }
+        public IQueryable<T> FindByExpression(Expression<Func<T, bool>> expression) => RepositoryContext.Set<T>().Where(expression).AsNoTracking();
+        public async Task<IQueryable<T>> ExecuteSqlQuery(Func<IQueryable<T>, IQueryable<T>> query)=> (IQueryable<T>)await query(RepositoryContext.Set<T>()).ToListAsync();
+        public  async Task<T> GetByIdAsync(Guid id) => await RepositoryContext.Set<T>().FindAsync(id);
+        public IQueryable<T> FindAll(Pagination pagination) => RepositoryContext.Set<T>().Skip(pagination.Skip).Take(pagination.Limit).AsQueryable();
+        public async Task<long> GetCountAsync() => await RepositoryContext.Set<T>().LongCountAsync();
+        
     }
 }

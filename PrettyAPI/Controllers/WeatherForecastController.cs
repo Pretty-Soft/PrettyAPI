@@ -20,7 +20,7 @@ namespace PrettyAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<dynamic> Get()
         {
             _logger.LogInfo("Here is info message from the controller.");
             _logger.LogDebug("Here is debug message from the controller.");
@@ -29,13 +29,6 @@ namespace PrettyAPI.Controllers
 
             throw new AccessViolationException("Violation Exception while accessing the resource.");
 
-            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            //{
-            //    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            //    TemperatureC = Random.Shared.Next(-20, 55),
-            //    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            //})
-            //.ToArray();
 
         }
     }

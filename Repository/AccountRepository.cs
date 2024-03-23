@@ -11,18 +11,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class AccountRepository: RepositoryBase<Account>,IAccountRepository
+    public class AccountRepository: RepositoryBase<Account>, IAccountRepository
     {
         public AccountRepository(RepositoryDBContext repositoryContext)
             : base(repositoryContext)
         {
         }
 
-        public async Task<IList<Account>> AccountsByOwnerAsync(Guid ownerId)
-        {
-            Expression<Func<Account, bool>> expression = owner => owner.Id.Equals(ownerId);
-            return await FindByExpression(expression).ToArrayAsync();
-        }
-       
+        public async void CreateAccount(Account account) => await CreateAsync(account);
+
+        public async void UpdateOwner(Account account) => await UpdateAsync(account);
+
+        public async void DeleteOwner(Account account) => await DeleteAsync(account);
+
     }
 }

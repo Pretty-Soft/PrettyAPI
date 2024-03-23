@@ -9,8 +9,8 @@ using Entities;
 
 namespace Contracts
 {
-    public interface IOwnerRepository : IRepositoryBase<Owner>, IRepositoryBaseFind<Owner>
+    public interface IOwnerRepository : IRepositoryBase<Owner>
     {
-        
+        Task<bool> GetOwnerWithAccountAsync(Guid id);       
     }
 }

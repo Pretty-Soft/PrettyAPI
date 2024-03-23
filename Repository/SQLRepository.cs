@@ -25,7 +25,6 @@ namespace Repository
         public async Task<IQueryable<TEntity>> ExecuteSqlQuery(Func<IQueryable<TEntity>, IQueryable<TEntity>> query)
         {
             return (IQueryable<TEntity>) await query(RepositoryContext.Set<TEntity>()).ToListAsync();
-            
         }
 
     }

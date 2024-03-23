@@ -18,25 +18,16 @@ namespace Repository
         {
               
         }
-        public async Task<IEnumerable<Owner>> GetOwnersAsync(Pagination pagination)  
-        {
-            return await FindAll(pagination).ToListAsync();
-        }
-        public async Task<IList<Owner>> GetOwnerByIdAsync(Guid ownerId)
-        {
-            Expression<Func<Owner, bool>> expression = owner => owner.Id.Equals(ownerId);
-            return await FindByExpression(expression).ToListAsync();
-        }
-        public async Task<IList<Owner>> GetOwnerWithAccountDetailsAsync(Guid ownerId)
-        {
-            Expression<Func<Owner, bool>> expression = owner => owner.Id.Equals(ownerId);
-            return await FindByExpression(expression).Include(ac => ac.Accounts).ToListAsync();
-        }
-        public void CreateOwner(Owner owner)=> CreateAsync(owner);
+       
+        public async void CreateOwner(Owner owner)=> await CreateAsync(owner);
         
-        public void UpdateOwner(Owner owner)=> UpdateAsync(owner);
+        public async void UpdateOwner(Owner owner)=> await UpdateAsync(owner);
         
-        public void DeleteOwner(Owner owner)=> DeleteAsync(owner);
-        
+        public async void DeleteOwner(Owner owner)=> await DeleteAsync(owner);
+
+        public Task<bool> GetOwnerWithAccountAsync(Guid id)
+        {
+           return this.RepositoryContext.Accounts.AnyAsync(m=>m.OwnerId==id);
+        }
     }
 }

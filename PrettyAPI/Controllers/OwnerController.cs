@@ -61,7 +61,7 @@ namespace PrettyAPI.Controllers
             {
                 
                 var returnData = new ApiResponseSuccess<OwnerDto>();
-                var owner =await _repository.Owner.GetOwnerByIdAsync(id);
+                var owner =await _repository.Owner.GetByIdAsync(id);
 
                 if (owner is null)
                 {
@@ -92,7 +92,7 @@ namespace PrettyAPI.Controllers
         {
               
                 var returnData = new ApiResponseSuccess<OwnerDto>();
-                var owner =await _repository.Owner.GetOwnerWithDetailsAsync(id);
+                var owner =await _repository.Owner.GetByIdAsync(id);
                 if (owner == null)
                 {
                     _logger.LogError($"Owner with id: {id}, hasn't been found in db.");
@@ -131,11 +131,11 @@ namespace PrettyAPI.Controllers
 
                 var ownerEntity = _mapper.Map<Owner>(owner);
 
-                _repository.Owner.CreateOwner(ownerEntity);
+                await _repository.Owner.CreateAsync(ownerEntity);
                 await _repository.SaveAsync();
 
 
-                returnData.data = _mapper.Map<OwnerDto>(ownerEntity);
+                returnData.data = null;
                 returnData.statusCode = StatusCodes.Status200OK;
                 returnData.status = "success";
                 returnData.message = "";
@@ -163,7 +163,7 @@ namespace PrettyAPI.Controllers
                     return BadRequest("Invalid model object");
                 }
 
-                var ownerEntity = await _repository.Owner.GetOwnerByIdAsync(id);
+                var ownerEntity = await _repository.Owner.GetByIdAsync(id);
                 if (ownerEntity == null)
                 {
                     _logger.LogError($"Owner with id: {id}, hasn't been found in db.");
@@ -172,7 +172,7 @@ namespace PrettyAPI.Controllers
 
                 _mapper.Map(owner, ownerEntity);
 
-                _repository.Owner.UpdateOwner(ownerEntity);
+                await _repository.Owner.UpdateAsync(ownerEntity);
                 await _repository.SaveAsync();
 
                 returnData.data = default!;
@@ -195,20 +195,20 @@ namespace PrettyAPI.Controllers
             try
             {
                 var returnData = new ApiResponseSuccess<OwnerDto>();
-                var owner = await _repository.Owner.GetOwnerByIdAsync(id);
+                var owner = await _repository.Owner.GetByIdAsync(id);
                 if (owner == null)
                 {
                     _logger.LogError($"Owner with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
 
-                if (_repository.Account.AccountsByOwnerAsync(id).Result.Any())
+                if (_repository.Owner.GetOwnerWithAccountAsync(id).Result)
                 {
                     _logger.LogError($"Cannot delete owner with id: {id}. It has related accounts. Delete those accounts first");
                     return BadRequest("Cannot delete owner. It has related accounts. Delete those accounts first");
                 }
 
-                _repository.Owner.DeleteOwner(owner);
+                await _repository.Owner.DeleteAsync(owner);
                 await _repository.SaveAsync();
 
                 returnData.data = null;

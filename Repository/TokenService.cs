@@ -23,13 +23,13 @@ namespace Repository
         {
             
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"].ToString()));
-            var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+            var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
             var tokeOptions = new JwtSecurityToken(
                 issuer: config["JWT:ValidIssuer"],
                 audience: config["JWT:ValidAudience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(35),
-                signingCredentials: signinCredentials
+                signingCredentials: signingCredentials
             );
             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
             return tokenString;
