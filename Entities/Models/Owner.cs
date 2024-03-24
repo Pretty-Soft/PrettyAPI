@@ -11,10 +11,8 @@ using System.Threading.Tasks;
 namespace Entities.Models
 {
     [Table("Owner")]
-    public class Owner
+    public class Owner: BaseEntity
     {
-        [Column("OwnerId")]
-        public Guid Id { get; set; }= default!;
 
         [Required(ErrorMessage = "Name is required")]
         [StringLength(60, ErrorMessage = "Name can't be longer than 60 characters")]

@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using DataLayer;
 using Entities;
 using Entities.Models;
 using Microsoft.AspNetCore.Http;
@@ -32,13 +33,14 @@ namespace PrettyAPI.Controllers
             }
             var user = DBContext.LoginModels.FirstOrDefault(u =>
                 (u.UserName == loginModel.UserName) && (u.Password == loginModel.Password));
-            if (user is null)
-                return Unauthorized();
+
+            if (user is null)return Unauthorized();
+
             var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, loginModel.UserName),
-            //new Claim(ClaimTypes.Role, "Manager")
-        };
+            {
+                new Claim(ClaimTypes.Name, loginModel?.UserName)
+                //new Claim(ClaimTypes.Role, "Manager")
+            };
             var accessToken = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();
             user.RefreshToken = refreshToken;

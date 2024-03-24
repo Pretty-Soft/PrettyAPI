@@ -1,5 +1,7 @@
 ﻿using Contracts;
+using DataLayer;
 using Entities;
+using Entities.Tenants;
 using LoggerService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -7,8 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using NLog;
 using Repository;
+using Repository.Tenants;
+using System;
 using System.Text;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -29,31 +34,26 @@ namespace PrettyAPI.Extensions
         public static void ConfigureIISIntegration(this IServiceCollection services)
         {
             services.Configure<IISOptions>(options => { });
+            
         }
 
         public static void ConfigureLoggerService(this IServiceCollection services)
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();
         }
-        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration config)
+        public static void ConfigureTenantService(this IServiceCollection services)
         {
-            var connectionString = config["ConnectionStrings:DefaultConnection"];
-
-            services.AddDbContext<RepositoryDBContext>(options =>
-            options.UseSqlServer(connectionString, b => b.MigrationsAssembly("PrettyAPI")));
-            services.AddDataProtection();
-
+            services.AddTransient<ITenantService, TenantService>();
         }
-        //public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration config)
-        //{//need to declare and correction
-        //    var connectionString = config["ConnectionStrings:DefaultConnection"];
-        //    services.AddDbContext<RepositoryDBContext>(o => o.UseMySql(connectionString,
-        //        MySqlServerVersion.LatestSupportedServerVersion));
-        //}
-
+        public static void ConfigureTenantSettings(this IServiceCollection services, IConfiguration config)
+        {
+            //Configure tenant setting
+            services.Configure<TenantSettings>(config.GetSection(nameof(TenantSettings)));
+        }
         public static void ConfigureRepositoryWrapper(this IServiceCollection services)
         {
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            
         }
         public static void ConfigureTokenRepositoryWrapper(this IServiceCollection services)
         {

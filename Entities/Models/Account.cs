@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 namespace Entities.Models
 {
     [Table("Account")]
-    public class Account
+    public class Account:BaseEntity
     {
-        [Column("AccountId")]
-        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Date created is required")]
         public DateTime DateCreated { get; set; }

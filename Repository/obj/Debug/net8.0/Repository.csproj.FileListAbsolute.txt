@@ -19,8 +19,10 @@ D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Repository.deps.json
 D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Repository.dll
 D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Repository.pdb
 D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Contracts.dll
+D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\DataLayer.dll
 D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Entities.dll
 D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Contracts.pdb
+D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\DataLayer.pdb
 D:\Pretty-Soft\PrettyAPI\Repository\bin\Debug\net8.0\Entities.pdb
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.AssemblyReference.cache
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.GeneratedMSBuildEditorConfig.editorconfig

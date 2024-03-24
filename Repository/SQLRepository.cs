@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer;
 
 namespace Repository
 {
-    public class SQLRepository<TEntity> : ISQLRepositoryBase<TEntity> where TEntity : class
+    public class SQLRepository:ISQLRepositoryBase
     {
         protected RepositoryDBContext RepositoryContext { get; set; }
       
@@ -22,10 +23,14 @@ namespace Repository
           
         }
 
-        public async Task<IQueryable<TEntity>> ExecuteSqlQuery(Func<IQueryable<TEntity>, IQueryable<TEntity>> query)
-        {
-            return (IQueryable<TEntity>) await query(RepositoryContext.Set<TEntity>()).ToListAsync();
-        }
+        //public async Task<IDictionary<string,object>> ExecuteSqlQuery(string sqlQuery, params object[] parameters)
+        //{
+
+        //    // Execute the SQL query and map results to MyEntity objects
+        //    var myEntities = RepositoryContext.Database.FromSqlRaw(sqlQuery).FirstOrDefaultAsync();
+
+        //    return myEntities.Result;
+        //}
 
     }
 }

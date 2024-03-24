@@ -10,6 +10,9 @@ D:\ZS-Soft-Tech\PrettyAPI\Entities\obj\Debug\net8.0\Entities.dll
 D:\ZS-Soft-Tech\PrettyAPI\Entities\obj\Debug\net8.0\refint\Entities.dll
 D:\ZS-Soft-Tech\PrettyAPI\Entities\obj\Debug\net8.0\Entities.pdb
 D:\ZS-Soft-Tech\PrettyAPI\Entities\obj\Debug\net8.0\ref\Entities.dll
+D:\Pretty-Soft\PrettyAPI\Entities\bin\Debug\net8.0\Entities.deps.json
+D:\Pretty-Soft\PrettyAPI\Entities\bin\Debug\net8.0\Entities.dll
+D:\Pretty-Soft\PrettyAPI\Entities\bin\Debug\net8.0\Entities.pdb
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\Entities.csproj.AssemblyReference.cache
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\Entities.AssemblyInfoInputs.cache
@@ -19,7 +22,4 @@ D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\Entities.sourcelink.json
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\Entities.dll
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\refint\Entities.dll
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\Entities.pdb
-D:\Pretty-Soft\PrettyAPI\Entities\bin\Debug\net8.0\Entities.deps.json
-D:\Pretty-Soft\PrettyAPI\Entities\bin\Debug\net8.0\Entities.dll
-D:\Pretty-Soft\PrettyAPI\Entities\bin\Debug\net8.0\Entities.pdb
 D:\Pretty-Soft\PrettyAPI\Entities\obj\Debug\net8.0\ref\Entities.dll

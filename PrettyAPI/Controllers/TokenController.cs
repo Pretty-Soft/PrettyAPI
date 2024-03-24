@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using DataLayer;
 using Entities;
 using Entities.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -12,11 +13,11 @@ namespace PrettyAPI.Controllers
     [ApiController]
     public class TokenController : ControllerBase
     {
-        private readonly RepositoryDBContext DBContext;
+        private readonly RepositoryDBContext _DbContext;
         private readonly ITokenService _tokenService;
         public TokenController(RepositoryDBContext dbContext, ITokenService tokenService)
         {
-            this.DBContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            this._DbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             this._tokenService = tokenService ?? throw new ArgumentNullException(nameof(tokenService));
         }
         [HttpPost]
@@ -26,17 +27,20 @@ namespace PrettyAPI.Controllers
             if (tokenApiModel is null)
                 return BadRequest("Invalid client request");
 
-            string accessToken = tokenApiModel.AccessToken;
-            string refreshToken = tokenApiModel.RefreshToken;
+            string? accessToken = tokenApiModel?.AccessToken;
+            string? refreshToken = tokenApiModel?.RefreshToken;
             var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
-            var username = principal.Identity.Name; //this is mapped to the Name claim by default
-            var user = DBContext.LoginModels.SingleOrDefault(u => u.UserName == username);
+
+            var username = principal.Identity?.Name; //this is mapped to the Name claim by default
+            var user = _DbContext.LoginModels.SingleOrDefault(u => u.UserName == username);
             if (user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
                 return BadRequest("Invalid client request");
+
             var newAccessToken = _tokenService.GenerateAccessToken(principal.Claims);
             var newRefreshToken = _tokenService.GenerateRefreshToken();
             user.RefreshToken = newRefreshToken;
-            DBContext.SaveChanges();
+            _DbContext.SaveChanges();
+
             return Ok(new AuthenticatedResponse()
             {
                 Token = newAccessToken,
@@ -47,11 +51,11 @@ namespace PrettyAPI.Controllers
         [Route("revoke")]
         public IActionResult Revoke()
         {
-            string? username = User.Identity.Name;
-            var user = DBContext.LoginModels.SingleOrDefault(u => u.UserName == username);
+            string? username = User.Identity?.Name;
+            var user = _DbContext.LoginModels.SingleOrDefault(u => u.UserName == username);
             if (user == null) return BadRequest();
             user.RefreshToken = null;
-            DBContext.SaveChanges();
+            _DbContext.SaveChanges();
             return NoContent();
         }
     }
