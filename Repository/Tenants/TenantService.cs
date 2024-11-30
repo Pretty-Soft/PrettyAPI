@@ -37,7 +37,7 @@ namespace Repository.Tenants
 
         private void SetTenant(long tenantId=1)
         {
-            _currentTenant = _tenantSettings.Tenants.FirstOrDefault(a => a.VendorId == tenantId);
+            _currentTenant = _tenantSettings.Tenants.FirstOrDefault(a => a.TenantId == tenantId);
 
             if (_currentTenant == null || string.IsNullOrEmpty(_currentTenant.ConnectionString))
             {

@@ -10,6 +10,7 @@ namespace Contracts
     {
         IOwnerRepository Owner { get; }
         IAccountRepository Account { get; }
+        IJwtBlacklistService JWTBlackList { get; }
         Task SaveAsync();
     }
 }

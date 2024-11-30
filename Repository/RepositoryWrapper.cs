@@ -15,6 +15,8 @@ namespace Repository
         private RepositoryDBContext _repoContext = repositoryContext;
         private IOwnerRepository _owner;
         private IAccountRepository _account;
+        private JwtBlacklistRepository _jwtBlackList;
+
 
         public IOwnerRepository Owner
         {
@@ -30,6 +32,14 @@ namespace Repository
             get{
                 if( _account == null) { _account = new AccountRepository(_repoContext); }
                 return _account;
+            }
+        }
+        public IJwtBlacklistService JWTBlackList
+        {
+            get
+            {
+                if (_jwtBlackList == null) { _jwtBlackList = new JwtBlacklistRepository(_repoContext); }
+                return _jwtBlackList;
             }
         }
 

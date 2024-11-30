@@ -15,10 +15,16 @@ namespace Repository
     public class TokenService: ITokenService
     {
         private IConfiguration config;
-        public TokenService(IConfiguration config)
+        private readonly IRepositoryWrapper _repository;
+       
+        public TokenService(IConfiguration config, IRepositoryWrapper repository)
         {
             this.config = config;
+            _repository = repository;
         }
+
+       
+
         public string GenerateAccessToken(IEnumerable<Claim> claims)
         {
             
@@ -58,11 +64,17 @@ namespace Repository
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;
-            var principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
+            if (_repository.JWTBlackList.IsTokenBlacklisted(token))
+            {
+                throw new SecurityTokenException("Invalid token");
+            }
+            var principal =  tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
+            
             var jwtSecurityToken = securityToken as JwtSecurityToken;
             if (jwtSecurityToken == null || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
                 throw new SecurityTokenException("Invalid token");
             return principal;
         }
+      
     }
 }

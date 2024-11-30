@@ -27,6 +27,9 @@ namespace PrettyAPI.Controllers
         [HttpPost, Route("login")]
         public IActionResult Login([FromBody] LoginModel loginModel)
         {
+
+            var tokenId = Guid.NewGuid().ToString();
+
             if (loginModel is null)
             {
                 return BadRequest("Invalid client request");
@@ -38,11 +41,15 @@ namespace PrettyAPI.Controllers
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, loginModel?.UserName)
+                new Claim(ClaimTypes.Name, loginModel?.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, tokenId),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 //new Claim(ClaimTypes.Role, "Manager")
             };
             var accessToken = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();
+
+            user.LatestTokenId = tokenId;
             user.RefreshToken = refreshToken;
             user.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
             DBContext.SaveChanges();

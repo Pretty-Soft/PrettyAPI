@@ -30,8 +30,8 @@ D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.AssemblyInfoInpu
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.AssemblyInfo.cs
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.CoreCompileInputs.cache
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.sourcelink.json
-D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.CopyComplete
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.dll
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\refint\Repository.dll
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.pdb
 D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\ref\Repository.dll
+D:\Pretty-Soft\PrettyAPI\Repository\obj\Debug\net8.0\Repository.csproj.Up2Date

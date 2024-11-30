@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using Entities.Models;
+using Entities.Tenants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -25,6 +26,7 @@ namespace DataLayer
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<LoginModel> LoginModels { get; set; }
+        public DbSet<Tenant> Tenants { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

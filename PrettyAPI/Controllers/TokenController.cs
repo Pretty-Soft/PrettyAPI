@@ -5,7 +5,9 @@ using Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using PrettyAPI.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace PrettyAPI.Controllers
 {
@@ -24,11 +26,13 @@ namespace PrettyAPI.Controllers
         [Route("refresh")]
         public IActionResult Refresh([FromBody]TokenApiModel tokenApiModel)
         {
+            
             if (tokenApiModel is null)
                 return BadRequest("Invalid client request");
 
             string? accessToken = tokenApiModel?.AccessToken;
             string? refreshToken = tokenApiModel?.RefreshToken;
+           
             var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
 
             var username = principal.Identity?.Name; //this is mapped to the Name claim by default

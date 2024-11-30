@@ -66,7 +66,7 @@ namespace PrettyAPI.Migrations
             migrationBuilder.InsertData(
                 table: "LoginModels",
                 columns: new[] { "Id", "Password", "RefreshToken", "RefreshTokenExpiryTime", "UserName" },
-                values: new object[] { 1L, "Z@d123", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "zs.islam93@gmail.com" });
+                values: new object[] { 1, "Z@d123", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "zs.islam93@gmail.com" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Account_OwnerId",

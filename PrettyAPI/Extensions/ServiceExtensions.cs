@@ -58,6 +58,7 @@ namespace PrettyAPI.Extensions
         public static void ConfigureTokenRepositoryWrapper(this IServiceCollection services)
         {
             services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<IJwtBlacklistService, JwtBlacklistRepository> ();
         }
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration config)
         {

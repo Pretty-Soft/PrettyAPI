@@ -28,8 +28,8 @@ D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyIn
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.AssemblyInfo.cs
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.csproj.CoreCompileInputs.cache
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.sourcelink.json
-D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.csproj.CopyComplete
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.dll
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\refint\LoggerService.dll
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerService.pdb
 D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\ref\LoggerService.dll
+D:\Pretty-Soft\PrettyAPI\LoggerService\obj\Debug\net8.0\LoggerSe.E7AEA5A8.Up2Date

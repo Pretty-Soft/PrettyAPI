@@ -24,8 +24,8 @@ D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.AssemblyInfoInputs
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.AssemblyInfo.cs
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.csproj.CoreCompileInputs.cache
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.sourcelink.json
-D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.csproj.CopyComplete
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.dll
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\refint\Contracts.dll
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.pdb
 D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\ref\Contracts.dll
+D:\Pretty-Soft\PrettyAPI\Contracts\obj\Debug\net8.0\Contracts.csproj.Up2Date
