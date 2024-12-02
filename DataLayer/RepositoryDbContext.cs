@@ -4,6 +4,7 @@ using Entities.Tenants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Buffers.Text;
 using System.Collections.Generic;
@@ -47,12 +48,41 @@ namespace DataLayer
             
             var tenantConnectionString = _tenantService.GetConnectionString();
             var dbProvider = _tenantService.GetDatabaseProvider();
+            var migrationAssembly = typeof(RepositoryDBContext).Assembly.GetName().Name.IsNullOrEmpty() ? "PrettyAPI" : typeof(RepositoryDBContext).Assembly.GetName().Name;
 
             if (!string.IsNullOrEmpty(tenantConnectionString))
             {
                 if (dbProvider.Equals("MSSQL", StringComparison.OrdinalIgnoreCase))
                 {
-                    optionsBuilder.UseSqlServer(tenantConnectionString);
+                    optionsBuilder.UseSqlServer(tenantConnectionString, builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
+                }
+                else if (dbProvider.Equals("PostgreSQL", StringComparison.OrdinalIgnoreCase))
+                {
+                    optionsBuilder.UseNpgsql(tenantConnectionString, builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
+                }
+                else if (dbProvider.Equals("MySQL", StringComparison.OrdinalIgnoreCase))
+                {
+                    optionsBuilder.UseMySql(tenantConnectionString, new MySqlServerVersion(new Version(8, 0, 2)), builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
+                }
+                else if (dbProvider.Equals("Oracle", StringComparison.OrdinalIgnoreCase))
+                {
+                    optionsBuilder.UseOracle(tenantConnectionString, builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
+                }
+                else
+                {
+                    throw new ArgumentException($"Unsupported database provider: {dbProvider}");
                 }
                 // Add conditions for other database providers if needed
             }

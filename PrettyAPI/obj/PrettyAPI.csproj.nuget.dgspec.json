@@ -130,6 +130,10 @@
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.21.121, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
@@ -367,7 +371,7 @@
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[8.0.0-beta.2, )"
+              "version": "[8.0.2, )"
             }
           },
           "imports": [

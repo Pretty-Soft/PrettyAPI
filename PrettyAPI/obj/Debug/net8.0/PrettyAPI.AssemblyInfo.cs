@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrettyAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+093b58d6caa59b1a0f475eb4f6acb91e414d9b90")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09b503bed162c5db098a104ef923b50524288315")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrettyAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrettyAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
