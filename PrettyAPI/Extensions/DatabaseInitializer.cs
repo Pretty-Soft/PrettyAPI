@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace PrettyAPI.Extensions
 {
@@ -10,24 +11,42 @@ namespace PrettyAPI.Extensions
         {
             try
             {
+                var migrationAssembly = typeof(RepositoryDBContext).Assembly.GetName().Name.IsNullOrEmpty() ? "PrettyAPI" : typeof(RepositoryDBContext).Assembly.GetName().Name;
+
                 var optionsBuilder = new DbContextOptionsBuilder<RepositoryDBContext>();
 
                 // Add conditions for other database providers if needed
                 if (provider.Equals("MSSQL", StringComparison.OrdinalIgnoreCase))
                 {
-                    optionsBuilder.UseSqlServer(connectionString);
+                    //optionsBuilder.UseSqlServer(connectionString);
+                    optionsBuilder.UseSqlServer(connectionString, builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
                 }
                 else if (provider.Equals("PostgreSQL", StringComparison.OrdinalIgnoreCase))
                 {
-                    optionsBuilder.UseNpgsql(connectionString);
+                   // optionsBuilder.UseNpgsql(connectionString);
+                    optionsBuilder.UseNpgsql(connectionString, builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
                 }
                 else if (provider.Equals("MySQL", StringComparison.OrdinalIgnoreCase))
                 {
-                    optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 2))); // Adjust version as needed
+                    //optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 2))); // Adjust version as needed
+                    optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 2)), builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
                 }
                 else if (provider.Equals("Oracle", StringComparison.OrdinalIgnoreCase))
                 {
-                    optionsBuilder.UseOracle(connectionString);
+                    //optionsBuilder.UseOracle(connectionString);
+                    optionsBuilder.UseOracle(connectionString, builder =>
+                    {
+                        builder.MigrationsAssembly(migrationAssembly);
+                    });
                 }
                 else
                 {
